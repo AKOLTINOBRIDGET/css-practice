@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Record Attendance - Student Attendance Management System</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+    <h1>Record Student Attendance</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attendance.html">Record Attendance</a>
+        <a href="reports.html">Reports</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+<main class="container">
+    <h2>Mark Attendance</h2>
+    <form id="attendanceForm">
+        <label for="studentID">Student ID:</label><br>
+        <input type="text" id="studentID" name="studentID" required><br><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <label>Attendance Status:</label><br>
+        <input type="radio" id="present" name="status" value="Present" checked>
+        <label for="present">Present</label><br>
+        <input type="radio" id="absent" name="status" value="Absent">
+        <label for="absent">Absent</label><br><br>
+        <button type="submit">Record Attendance</button>
+    </form>
+    <div id="confirmation" style="margin-top:20px;"></div>
+</main>
+<script src="script.js"></script>
+<footer>
+    <p>&copy; 2025 University Attendance System. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px 15px;
+    }
+
+    nav a:hover {
+      background-color: #2c3e50;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: #fff;
+    }
+
+    form input, form select, form button {
+      padding: 10px;
+      margin: 10px 5px 0 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #3498db;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      form input, form select, form button {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>University Student Attendance System</h1>
+    <p>Real-time Attendance Tracking and Reporting</p>
+  </header>
+
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#attendance">Mark Attendance</a>
+    <a href="#report">Reports</a>
+    <a href="#settings">Settings</a>
+  </nav>
+
+  <div class="container">
+    <section class="card" id="dashboard">
+      <h2>Dashboard</h2>
+      <p>Monitor live attendance statistics and student participation across faculties and departments.</p>
+    </section>
+
+    <section class="card" id="attendance">
+      <h2>Mark Attendance</h2>
+      <form id="attendanceForm">
+        <input type="text" id="studentName" placeholder="Student Name" required>
+        <input type="text" id="studentId" placeholder="Student ID" required>
+        <select id="course">
+          <option value="">Select Course</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Business">Business</option>
+        </select>
+        <button type="submit">Mark Present</button>
+      </form>
+    </section>
+
+    <section class="card" id="report">
+      <h2>Attendance Records</h2>
+      <table id="attendanceTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Records will appear here -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 University Attendance System. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('attendanceForm');
+    const tableBody = document.querySelector('#attendanceTable tbody');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('studentName').value;
+      const id = document.getElementById('studentId').value;
+      const course = document.getElementById('course').value;
+      const date = new Date().toLocaleDateString();
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${id}</td>
+        <td>${course}</td>
+        <td>${date}</td>
+      `;
+      tableBody.appendChild(row);
+
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>
